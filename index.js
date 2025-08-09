@@ -11,7 +11,7 @@ const API_URL = "http://www.thecocktaildb.com/api/json/v1/1/random.php";
 app.get("/",async (req,res)=>{
     try{
         const result = await axios.get(API_URL);
-        const cocktailImage = result.data.drinks[0].strDrinkThumb;
+        const cocktailImage = result.data.drinks[0].strDrinkThumb + "/medium";
         const detail = result.data.drinks[0].strInstructions;
         const cocktailName = result.data.drinks[0].strDrink;
         res.render("index.ejs",{i:cocktailImage,d:detail,n:cocktailName});
